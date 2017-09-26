@@ -1,20 +1,157 @@
-<HTML>
-<HEAD>
-<TITLE>פורטל הסטודנטים לאדריכלות של אוניברסיטת  ת"א</TITLE>
-</HEAD>
-<BODY BGCOLOR="FFFFFF" dir=rtl>
 
-<form name="input" action="https://www.facebook.com/groups/331133126976613/search/?" method="get" Dir=rt>
-    <div class="form_wrapper" Dir=rt>
-        <input type="submit" value="חפש" Dir=rtl />
-		<input type="text" name="query" placeholder="חפש בקבוצת הפייסבוק" Dir=rtl />        
-    </div>
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="he-IL">
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2017.0.2.363"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
+</script>
+  
+  <title>ביקורות קורסי בחירה</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=443350757"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4227879179" id="pagesheet"/>
+    <!--custom head HTML-->
+  <style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 1px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.srch{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.srch:hover {
+    background-color: #555555;
+    color: white;
+}
+.add {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+
+.add:hover {
+    background-color: #f44336;
+    color: white;
+}
+</style>
+ </head>
+ <body>
+
+  <div class="clearfix borderbox" id="page"><!-- column -->
+   <div class="clearfix colelem" id="u212-4"><!-- content -->
+    <p>קורסי בחירה - ביקורות</p>
+   </div>
+   <div class="clearfix colelem" id="pu165"><!-- group -->
+    <div class="grpelem" id="u165"><!-- custom html -->
+     <form name="searchqry" Dir="rtl" onsubmit="UpdateForm(); return false;">
+
+<div id="div1" style="display: block;">
+    <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev();"/ >הוסף ביקורת חדשה</button>
+&nbsp; | &nbsp;
+מסגרת: 
+<select name="type" id="type1" style="border: 1px solid #555555;padding: 2px 4px;">
+  <option value="">הכל</option>
+  <option value="אמנות">אמנות</option>
+  <option value="מדעי הרוח">מדעי הרוח</option>
+  <option value="אחר">אחר</option>
+</select>
+&nbsp;&nbsp; חפש קורס לפי שם:
+    <input type="text" name="query" id="search1" placeholder="שם הקורס" Dir="rtl" style="border: 1px solid #555555;padding: 2px 4px;"/>
+&nbsp; &nbsp; 
+    <button class="button srch" Dir="rtl" onclick="javascript:UpdateForm()"/ >חיפוש</button> 
+    <button class="button srch" Dir="rtl" onclick="javascript:ClearForm()"/ >איפוס</button>  
+</div>
+<div id="div2" style="display: none;">
+    <button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
 </form>
-	
-<iframe src="https://drive.google.com/embeddedfolderview?id=0BymOy7I973h5MFVjYjFyOGJuNGM#list" width="600" height="500" frameborder="0"></iframe>
-	
-</BODY>
-</HTML>
+    </div>
+    <div class="grpelem" id="u160"><!-- custom html -->
+     
+<center>
+<iframe name='iframe1' id="iframe1" width='960px' height='650px' frameborder='0' dir='rtl' src='https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True' style="display: block;"></iframe>
+
+<iframe name='iframe1' id="iframe2" width='960px' height='650px' frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true' style="display: none;"></iframe>
+</center>
 
 
+<script type="text/javascript"> 
 
+var query = new google.visualization.Query(');
+query.setQuery('select dept, sum(salary) group by dept');
+query.send(handleQueryResponse)
+
+
+function UpdateForm() {
+  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+where+B+CONTAINS+"' + document.getElementById("search1").value + '"+AND+C+CONTAINS+"' +  document.getElementById("type1")[document.getElementById("type1").selectedIndex].value + '"+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
+}
+function ClearForm() {
+ document.getElementById("type1").selectedIndex= "0";
+document.getElementById("search1").value = "";
+  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
+}
+
+function AddRev() {
+  document.getElementById("iframe1").style.display = 'none';
+  document.getElementById("div1").style.display = 'none';
+  document.getElementById("div2").style.display = 'block';
+  document.getElementById("iframe2").style.display = 'block';
+
+}
+
+function BckRev() {
+  document.getElementById("iframe2").style.display = 'none';
+  document.getElementById("div2").style.display = 'none';
+  document.getElementById("div1").style.display = 'block';
+  document.getElementById("iframe1").style.display = 'block';
+
+}
+
+</script>
+
+    </div>
+   </div>
+   <div class="verticalspacer" data-offset-top="988" data-content-above-spacer="987" data-content-below-spacer="62"></div>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   window.Muse.assets.check=function(d){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},c=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},g=function(g){for(var f=document.getElementsByTagName("link"),h=0;h<f.length;h++)if("text/css"==f[h].type){var i=(f[h].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!i||!i[1]||!i[2])break;b[i[1]]=i[2]}f=document.createElement("div");f.className="version";f.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(f);for(h=0;h<Muse.assets.required.length;){var i=Muse.assets.required[h],l=i.match(/([\w\-\.]+)\.(\w+)$/),k=l&&l[1]?
+l[1]:null,l=l&&l[2]?l[2]:null;switch(l.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.className+=" "+k;k=a(c(f,"color"));l=a(c(f,"backgroundColor"));k!=0||l!=0?(Muse.assets.required.splice(h,1),"undefined"!=typeof b[i]&&(k!=b[i]>>>24||l!=(b[i]&16777215))&&Muse.assets.outOfDate.push(i)):h++;f.className="version";break;case "js":h++;break;default:throw Error("Unsupported file type: "+l);}}d?d().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+f.parentNode.removeChild(f);if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="Some files on the server may be missing or incorrect. Clear browser cache and try again. If the problem persists please contact website author.",g&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),g&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?setTimeout(function(){g(!0)},5E3):g()}};
+var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch"],function(d){var $ = d;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.fullPage('#page');/* 100% height page */
+Muse.Utils.showWidgetsWhenReady();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=4234670167" type="text/javascript" async data-main="scripts/museconfig.js?crc=4163635208" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
+</html>
