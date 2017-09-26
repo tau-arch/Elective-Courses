@@ -1,0 +1,19 @@
+<manifest alg="2" build="2017.0.2.363" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="index.html" resolutions="1x" timestamp="1506451906398">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="index.css" crc="4227879179" ref="index"/>
+    <file name="home-copy.css" crc="162977704" ref="home-copy"/>
+    <file name="home-copy-2.css" crc="3981300462" ref="home-copy-2"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:home-copy:home-copy-2"/>
+    <file name="museutils.js" crc="4232573551" ref="index:home-copy:home-copy-2"/>
+    <file name="whatinput.js" crc="86476730" ref="index:home-copy:home-copy-2"/>
+    <file name="museconfig.js" crc="3849126041" ref="index:home-copy:home-copy-2"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index:home-copy:home-copy-2"/>
+    <file name="require.js" crc="4234670167" ref="index:home-copy:home-copy-2"/>
+  </folder>
+  <file name="index.html" crc="3961413341" seo="true" mt="1506451738745" redirect="true"/>
+  <file name="home-copy.html" crc="4196555351" seo="true" mt="1506446515130" redirect="true"/>
+  <file name="home-copy-2.html" crc="19392122" seo="true" mt="1506451535505" redirect="true"/>
+</manifest>
