@@ -65,10 +65,10 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
    </div>
    <div class="clearfix colelem" id="pu165"><!-- group -->
     <div class="grpelem" id="u165"><!-- custom html -->
-     <form name="searchqry" Dir="rtl" onsubmit="UpdateForm(); return false;">
+     <form name="searchqry" Dir="rtl" onsubmit="return false;">
 
 <div id="div1" style="display: block;">
-    <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev();"/ >הוסף ביקורת חדשה</button>
+    <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()">הוסף ביקורת חדשה</button>
 &nbsp; | &nbsp;
 מסגרת: 
 <select name="type" id="type1" style="border: 1px solid #555555;padding: 2px 4px;">
@@ -86,23 +86,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 <div id="div2" style="display: none;">
     <button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
 </form>
-    </div>
-    <div class="grpelem" id="u160"><!-- custom html -->
-     
-<center>
-<iframe name='iframe1' id="iframe1" width='960px' height='650px' frameborder='0' dir='rtl' src='https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True' style="display: block;"></iframe>
-
-<iframe name='iframe1' id="iframe2" width='960px' height='650px' frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true' style="display: none;"></iframe>
-</center>
-
 
 <script type="text/javascript"> 
-
-var query = new google.visualization.Query(');
-query.setQuery('select dept, sum(salary) group by dept');
-query.send(handleQueryResponse)
-
-
 function UpdateForm() {
   document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+where+B+CONTAINS+"' + document.getElementById("search1").value + '"+AND+C+CONTAINS+"' +  document.getElementById("type1")[document.getElementById("type1").selectedIndex].value + '"+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
 }
@@ -129,6 +114,15 @@ function BckRev() {
 }
 
 </script>
+
+    </div>
+    <div class="grpelem" id="u160"><!-- custom html -->
+     
+<center>
+<iframe name='iframe1' id="iframe1" width='960px' height='650px' frameborder='0' dir='rtl' src='https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True' style="display: block;"></iframe>
+
+<iframe name='iframe1' id="iframe2" width='960px' height='650px' frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true' style="display: none;"></iframe>
+</center>
 
     </div>
    </div>
