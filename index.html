@@ -17,7 +17,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
   <title>Home</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=443350757"/>
-  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4227879179" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css?crc=261881459" id="pagesheet"/>
     <!--custom head HTML-->
   <style>
 .button {
@@ -68,7 +68,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      <form name="searchqry" Dir="rtl" onsubmit="return false;">
 
 <div id="div1" style="display: block;">
-    <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()">הוסף ביקורת חדשה</button>
+<button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()">הוסף ביקורת חדשה</button>
 &nbsp; | &nbsp;
 מסגרת: 
 <select name="type" id="type1" style="border: 1px solid #555555;padding: 2px 4px;">
@@ -77,11 +77,14 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
   <option value="מדעי הרוח">מדעי הרוח</option>
   <option value="אחר">אחר</option>
 </select>
-&nbsp;&nbsp; חפש קורס לפי שם:
+&nbsp;&nbsp;
     <input type="text" name="query" id="search1" placeholder="שם הקורס" Dir="rtl" style="border: 1px solid #555555;padding: 2px 4px;"/>
-&nbsp; &nbsp; 
+&nbsp;&nbsp;
+    <input type="text" name="query2" id="search2" placeholder="שם המרצה" Dir="rtl" style="border: 1px solid #555555;padding: 2px 4px;"/>
+&nbsp;&nbsp;
     <button class="button srch" Dir="rtl" onclick="javascript:UpdateForm()"/ >חיפוש</button> 
     <button class="button srch" Dir="rtl" onclick="javascript:ClearForm()"/ >איפוס</button>  
+
 </div>
 <div id="div2" style="display: none;">
     <button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
@@ -89,11 +92,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 
 <script type="text/javascript"> 
 function UpdateForm() {
-  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+where+B+CONTAINS+"' + document.getElementById("search1").value + '"+AND+C+CONTAINS+"' +  document.getElementById("type1")[document.getElementById("type1").selectedIndex].value + '"+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
+  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+where+B+CONTAINS+"' + document.getElementById("search1").value + '"+AND+C+CONTAINS+"' +  document.getElementById("type1")[document.getElementById("type1").selectedIndex].value + '"+AND+D+CONTAINS+"' + document.getElementById("search2").value + '"+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
 }
 function ClearForm() {
  document.getElementById("type1").selectedIndex= "0";
 document.getElementById("search1").value = "";
+document.getElementById("search2").value = "";
   document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
 }
 
@@ -126,7 +130,7 @@ function BckRev() {
 
     </div>
    </div>
-   <div class="verticalspacer" data-offset-top="988" data-content-above-spacer="987" data-content-below-spacer="62"></div>
+   <div class="verticalspacer" data-offset-top="997" data-content-above-spacer="996" data-content-below-spacer="62"></div>
   </div>
   <!-- Other scripts -->
   <script type="text/javascript">
