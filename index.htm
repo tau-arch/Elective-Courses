@@ -1,11 +1,130 @@
-<HTML>
-<HEAD>
+<html lang="he" dir=rtl>
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>קורסי בחירה - ביקורות</title>
 <style type="text/css" media="screen">
+
+/***************************
+    Site Design CSS
+***************************/
+
+#box {
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  color: #333;
+  text-align: center;
+  overflow: visible;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 3em;
+  line-height: 1.3em;
+  letter-spacing: -4px;
+  margin: 0.8rem 0 0 0;
+  padding-bottom: 5px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.65em;
+  margin: 0.6em auto 0.6em auto;
+  padding: 0;
+  width: 23em;
+}
+
+p.small {
+  font-size: 0.8em;
+}
+
+a,
+a:visited,
+a:hover {
+  color: #333;
+  font-weight: 600;
+}
+
+
+/***************************
+    Google Table CSS
+***************************/
+
+.google-visualization-table-tr-even,
+.google-visualization-table-tr-even td,
+.google-visualization-table-tr-even-nonstrict {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+
+.google-visualization-table-tr-odd,
+.google-visualization-table-tr-odd td,
+.google-visualization-table-tr-odd-nonstrict {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+
+.google-visualization-table-tr-sel,
+.google-visualization-table-tr-sel td,
+.google-visualization-table-tr-sel-nonstrict {
+  background-color: #666 !important;
+  color: #fff !important;
+}
+
+.google-visualization-table-tr-over,
+.google-visualization-table-tr-over td,
+.google-visualization-table-tr-over-nonstrict {
+  background-color: #666 !important;
+  color: #fff !important;
+}
+
+.google-visualization-table-td,
+.google-visualization-table-th {
+  border: 1px solid #666 !important;
+  color: #fff !important;
+}
+
+.google-visualization-table-tr-head,
+.google-visualization-table-tr-head td,
+.google-visualization-table-tr-head-nonstrict {
+  background-color: #333 !important;
+  background-image: none !important;
+  color: #fff !important;
+}
+
+.google-visualization-table .gradient {
+  background-image: none !important;
+}
+
+
+/***************************
+    Text Selection CSS
+***************************/
+
+::-moz-selection {
+  color: #fff;
+  background: #333;
+}
+
+::selection {
+  color: #fff;
+  background: #333;
+}
+
+
 body, html {width: 100%; height: 100%; margin: 0; padding: 0; font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-weight:normal;}
-.row-container {display: table; empty-cells: show; border-collapse: collapse; width: 100%; height: 100%;}
-.first-row {display: table-row; overflow: auto; background-color: white;}
-.second-row {display: table-row; height: 100%; background-color: white; overflow: hidden }
-.second-row iframe {width: 100%; height: 100%; border: none; margin: 0; padding: 0; display: block;}
+.box {display: table; empty-cells: show; border-collapse: collapse; width: 100%; height: 100%;}
+iframe {width: 100%; height: 100%; border: none; margin: 0; padding: 0; display: block;}
 
 select.empty{
   color: grey;
@@ -44,7 +163,7 @@ option {
     border: 2px solid #555555;
 }
 
-.srch:hover {
+.srch:hover:not(:focus) {
     background-color: #555555;
     color: white;
 }
@@ -52,94 +171,111 @@ option {
     background-color: white; 
     color: black; 
     border: 2px solid #f44336;
+	margin-bottom: 20px;
+	padding: 8px 32px;
 }
 
-.add:hover{
+.add:hover:not(:focus) {
     background-color: #f44336;
     color: white;
 }
 </style>
-<TITLE>ביקורות קורסי בחירה</TITLE>
-</HEAD>
-<BODY BGCOLOR="FFFFFF">
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+</head>
 
-<script type="text/javascript"> 
-
-
-function UpdateForm() {
-  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+where+B+CONTAINS+"' + document.getElementById("search1").value + '"+AND+C+CONTAINS+"' +  document.getElementById("type1")[document.getElementById("type1").selectedIndex].value + '"+AND+D+CONTAINS+"' + document.getElementById("search2").value + '"+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
-}
-function ClearForm() {
- document.getElementById("type1").selectedIndex= "0";
-  SelectChange(document.getElementById("type1"))
-document.getElementById("search1").value = "";
-document.getElementById("search2").value = "";
-  document.getElementById("iframe1").setAttribute('src','https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True');
-}
-
-function AddRev() {
-  document.getElementById("iframe1").style.display = 'none';
-  document.getElementById("div1").style.display = 'none';
-  document.getElementById("div2").style.display = 'block';
-  document.getElementById("iframe2").style.display = 'block';
-
-}
-
-function BckRev() {
-  document.getElementById("iframe2").style.display = 'none';
-  document.getElementById("div2").style.display = 'none';
-  document.getElementById("div1").style.display = 'block';
-  document.getElementById("iframe1").style.display = 'block';
-
-}
-
-function SelectChange(selectid) {
-if (selectid.value == "") { selectid.className = "empty"}
-else { selectid.className = "selected"}
-}
-
-</script>
-
-<div class="row-container" die="rtl">
-
-  <div class="first-row" dir="rtl">
+<body id="background" dir=rtl>
   <center>
-    <p style="margin-top: 10px; margin-bottom: 5px; font-size: 36px;font-weight: bold;">קורסי בחירה - ביקורות</p>
-<form name="searchqry" Dir="rtl" onsubmit="return false;" style="margin: 2px;">
+  <div id="box" dir=rtl>
 
-<div id="div1" style="display: block;">
-<select name="type" id="type1" class="empty" style="border: 1px solid #555555;padding: 2px 4px;" onchange="SelectChange(this)">
+    <h1>קורסי בחירה - ביקורות</h1>
+	<form name="searchqry" Dir="rtl" onsubmit="return false;" style="margin-top: 2px;margin-bottom: 10px;">
+
+<div id="showCourse" style="display: block;">
+<button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()">הוסף ביקורת</button>
+<br/>
+<select name="ctype" id="ctype" class="empty" style="border: 1px solid #555555;padding: 4px 4px;" onchange="SearchForm()">
 <option value="" default selected>מסגרת</option>
   <option value="אמנות">אמנות</option>
   <option value="מדעי הרוח">מדעי הרוח</option>
   <option value="אחר">אחר</option>
 </select>
 &nbsp;&nbsp;
-    <input type="text" name="query" id="search1" placeholder="שם הקורס" Dir="rtl" style="border: 1px solid #555555;padding: 2px 4px; width: 130px;"/>
+    <input type="text" name="cname" id="cname" placeholder="שם הקורס" Dir="rtl" style="border: 1px solid #555555;padding: 4px 4px; width: 130px;" oninput="SearchForm()"/>
 &nbsp;&nbsp;
-    <input type="text" name="query2" id="search2" placeholder="שם המרצה" Dir="rtl" style="border: 1px solid #555555;padding: 2px 4px; width: 130px;"/>
+    <input type="text" name="pname" id="pname" placeholder="שם המרצה" Dir="rtl" style="border: 1px solid #555555;padding: 4px 4px; width: 130px;" oninput="SearchForm()"/>
 &nbsp;&nbsp;
-    <button class="button srch" Dir="rtl" onclick="javascript:UpdateForm()"/ >חיפוש</button> 
+<!--     <button class="button srch" Dir="rtl" onclick="javascript:SearchForm()"/ >חיפוש</button>  -->
     <button class="button srch" Dir="rtl" onclick="javascript:ClearForm()"/ >איפוס</button> 
-&nbsp;	
-<button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()">הוסף ביקורת</button>
+	    <script type="text/javascript">
+	google.load('visualization', '1', {
+    packages: ['table']
+});
+var visualization;
+
+
+function SearchForm() {
+	var objCType = document.getElementById("ctype")[document.getElementById("ctype").selectedIndex];
+	var objCName = document.getElementById("cname");
+	var objPName = document.getElementById("pname");
+	var ctype = "\""+objCType.value+"\"";
+	var cname = "\""+objCName.value+"\"";
+	var pname = "\""+objPName.value+"\"";
+    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&output=html&usp=sharing');
+    query.setQuery('SELECT A, B, C, D, E, F, G, H, I WHERE B CONTAINS ' + cname + ' AND C CONTAINS ' + ctype + ' AND D CONTAINS ' + pname + ' ORDER BY A DESC');
+    query.send(handleQueryResponse);
+}
+
+function ClearForm() {
+	document.getElementById("ctype").selectedIndex = "0";
+	document.getElementById("ctype").value = "";
+	document.getElementById("cname").value = "";
+	document.getElementById("pname").value = "";
+	SearchForm();
+}
+
+function AddRev() {
+	document.getElementById("showCourse").style.display = 'none';
+	document.getElementById("addCourse").style.display = 'block';
+
+}
+
+function BckRev() {
+	document.getElementById("showCourse").style.display = 'block';
+	document.getElementById("addCourse").style.display = 'none';
+}
+
+function drawVisualization(ctype,cname,pname) {
+    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&output=html&usp=sharing');
+    query.setQuery('SELECT A, B, C, D, E, F, G, H, I ORDER BY A DESC');
+    query.send(handleQueryResponse);
+}
+
+function handleQueryResponse(response) {
+    if (response.isError()) {
+        alert('There was a problem with your query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+    }
+    var data = response.getDataTable();
+    visualization = new google.visualization.Table(document.getElementById('table'));
+    visualization.draw(data, {
+        legend: 'bottom'
+    });
+}
+google.setOnLoadCallback(drawVisualization);
+	</script>
+	
+	
+    <div id="table" dir=rtl style="margin-top: 20px; height: 650px;">
+		<center>טוען...</center>
+    </div>
 </div>
-<div id="div2" style="display: none;">
-    <button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
+	<div id="addCourse" style="display: none;">
+	<button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
+	<iframe name='iframe1' id="iframe1" frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true'></iframe>
+	</div>
 </form>
-</p>
+</center>
+
   </div>
-  </div>
-  <div class="second-row" dir="rtl">
-    </center>
-<iframe name='iframe1' id="iframe1" frameborder='0' dir='rtl' src='https://spreadsheets.google.com/tq?tqx=out:html&tq=select+I,H,G,F,E,D,C,B,A+ORDER+BY+A+DESC&key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&rightToLeft=True' style="display: block;"></iframe>
-
-<iframe name='iframe1' id="iframe2" frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true' style="display: none;"></iframe>
-  </div>
-</div>
-
-</BODY>
-</HTML>
-
-
-
+</body>
+</html>
