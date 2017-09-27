@@ -269,7 +269,7 @@ function SearchForm() {
 	var cname = "\""+objCName.value+"\"";
 	var pname = "\""+objPName.value+"\"";
     var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&output=html&usp=sharing');
-    query.setQuery('SELECT A, B, C, D, E, F, G, H, I WHERE B CONTAINS ' + cname + ' AND C CONTAINS ' + ctype + ' AND D CONTAINS ' + pname + ' ORDER BY A DESC');
+    query.setQuery('SELECT B, C, D, E, F, G, H, I, A WHERE B CONTAINS ' + cname + ' AND C CONTAINS ' + ctype + ' AND D CONTAINS ' + pname + ' ORDER BY A DESC');
     query.send(handleQueryResponse);
 
 }
