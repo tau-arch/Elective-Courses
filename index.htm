@@ -94,6 +94,11 @@ a:hover {
   color: #fff !important;
 }
 
+.boldify{
+  font-weight: bold !important;
+
+}
+
 .google-visualization-table-tr-head,
 .google-visualization-table-tr-head td,
 .google-visualization-table-tr-head-nonstrict {
@@ -211,7 +216,7 @@ padding: 5px;
 
 <div id="showCourse" style="display: block;">
 <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()"><img src="./images/plus.png" height="10px;">&nbsp;הוסף ביקורת</button> &nbsp; | &nbsp;
-<select name="ctype" id="ctype" class="empty" style="border: 1px solid #555555;padding: 4px 4px;" onchange="SearchForm()">
+<select name="ctype" id="ctype" class="empty" style="border: 1px solid #555555;padding: 3px 4px 3.5px 4px;" onchange="SearchForm()">
 <option value="" default selected>מסגרת</option>
   <option value="אמנות">אמנות</option>
   <option value="מדעי הרוח">מדעי הרוח</option>
@@ -241,11 +246,18 @@ function popitup(url) {
     }
 
 function getSelected() {
-	var elmnt = document.getElementsByClassName("google-visualization-table-tr-sel")[0].childNodes;
-	var selCrs = elmnt[1].innerHTML;
-	var selProf = elmnt[3].innerHTML;
+	var elmnt = document.getElementsByClassName("google-visualization-table-tr-even")[0].childNodes;
+	var selCrs = elmnt[0].innerHTML;
+	var selProf = elmnt[2].innerHTML;
 	var strSr = "https://www.google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf + "&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf;
 	popitup(strSr);
+}
+
+function Boldify() {
+	var elmnt = document.getElementsByTagName("TR");
+	for (i=0; i<elmnt.length ; i++){
+		elmnt[i].childNodes[0].className += " Boldify";
+	}
 }
 
 
@@ -283,7 +295,7 @@ function BckRev() {
 
 function drawVisualization(ctype,cname,pname) {
     var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=15ukrfTaK7P8MPKXOUeYPhPnUuDnxGwrl0kHuLjwcQs0&output=html&usp=sharing');
-    query.setQuery('SELECT A, B, C, D, E, F, G, H, I ORDER BY A DESC');
+    query.setQuery('SELECT B, C, D, E, F, G, H, I, A ORDER BY A DESC');
     query.send(handleQueryResponse);
 }
 
@@ -305,6 +317,7 @@ function handleQueryResponse(response) {
 	else {
 		document.getElementById('table').style.display = 'block';
 		document.getElementById('noData').style.display = 'none';
+		Boldify();
 	}
 }
 google.setOnLoadCallback(drawVisualization);
