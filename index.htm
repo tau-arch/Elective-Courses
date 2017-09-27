@@ -231,7 +231,9 @@ padding: 5px;
     <button class="button srch" Dir="rtl" onclick="javascript:ClearForm()"/ ><img src="./images/reset.png" height="10px;">&nbsp;איפוס</button> 
 	<br/>
 	<br/>
-	<font color="#f44336">לחצו על קורס בכדי לחפש את הסילבוס שלו.</font>
+	<font size="2">לחצו על כותרת עמודה בכדי לסדר את המידע לפיה.</font>
+	<br/>
+	<font color="#f44336"><b>לחצו על קורס בכדי לחפש את הסילבוס שלו. </b></font>
 
 	    <script type="text/javascript">
 	google.load('visualization', '1', {
@@ -246,11 +248,13 @@ function popitup(url) {
     }
 
 function getSelected() {
-	var elmnt = document.getElementsByClassName("google-visualization-table-tr-even")[0].childNodes;
-	var selCrs = elmnt[0].innerHTML;
-	var selProf = elmnt[2].innerHTML;
-	var strSr = "https://www.google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf + "&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf;
-	popitup(strSr);
+	var elmnt = document.getElementsByClassName("google-visualization-table-tr-sel")[0].childNodes;
+	if (elmnt.length>0) {
+		var selCrs = elmnt[0].innerHTML;
+		var selProf = elmnt[2].innerHTML;
+		var strSr = "https://www.google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf + "&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf;
+		popitup(strSr);
+	}
 }
 
 function Boldify() {
