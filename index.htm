@@ -178,10 +178,30 @@ option {
     background-color: #f44336;
     color: white;
 }
-</style>
-  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-</head>
 
+#watermark
+{
+text-align: left;
+padding: 5px;
+ position:fixed;
+ bottom:0px;
+ right:0px;
+ opacity:0.9;
+ z-index:99;
+ background-color:white;
+ color:gray;
+ font-size: x-small;
+ width: 100%; height: 20px; border: none; margin: -10px; display: block;
+ vertical-align: middle;
+}
+</style>
+
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+  
+<!--   google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+תולדות+הנצרות&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+תולדות+הנצרות -->
+</head>
+<div id="watermark">© כל הזכויות שמורות לתם מלול, ספטמבר 2017.</div>
 <body id="background" dir=rtl>
   <center>
   <div id="box" dir=rtl>
@@ -190,7 +210,6 @@ option {
 	<form name="searchqry" Dir="rtl" onsubmit="return false;" style="margin-top: 2px;margin-bottom: 10px;">
 
 <div id="showCourse" style="display: block;">
-
 <button id="rev1" class="button add" Dir="rtl" onclick="javascript:AddRev()"><img src="./images/plus.png" height="10px;">&nbsp;הוסף ביקורת</button> &nbsp; | &nbsp;
 <select name="ctype" id="ctype" class="empty" style="border: 1px solid #555555;padding: 4px 4px;" onchange="SearchForm()">
 <option value="" default selected>מסגרת</option>
@@ -205,11 +224,29 @@ option {
 &nbsp; | &nbsp;
 <!--     <button class="button srch" Dir="rtl" onclick="javascript:SearchForm()"/ >חיפוש</button>  -->
     <button class="button srch" Dir="rtl" onclick="javascript:ClearForm()"/ ><img src="./images/reset.png" height="10px;">&nbsp;איפוס</button> 
+	<br/>
+	<br/>
+	<font color="#f44336">לחצו על קורס בכדי לחפש את הסילבוס שלו.</font>
+
 	    <script type="text/javascript">
 	google.load('visualization', '1', {
     packages: ['table']
 });
 var visualization;
+
+function popitup(url) {
+        newwindow=window.open(url,'name','height=600,width=600');
+        if (window.focus) {newwindow.focus()}
+        return false;
+    }
+
+function getSelected() {
+	var elmnt = document.getElementsByClassName("google-visualization-table-tr-sel")[0].childNodes;
+	var selCrs = elmnt[1].innerHTML;
+	var selProf = elmnt[3].innerHTML;
+	var strSr = "https://www.google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf + "&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il%2F+" + selCrs + "+" + selProf;
+	popitup(strSr);
+}
 
 
 function SearchForm() {
@@ -274,13 +311,19 @@ google.setOnLoadCallback(drawVisualization);
 	</script>
 	
 	
-    <div id="table" dir=rtl style="margin-top: 20px;">
+    <div id="table" dir=rtl style="margin-top: 5px;" onclick="getSelected()">
 		<center>טוען...</center>
     </div>
 	<div id="noData" dir=rtl style="margin-top: 20px; display:none;">
 		<center>אין נתונים המתאימים לחיפוש.</center>
     </div>
 </div>
+
+	<div id="syl" style="display: none;">
+	<button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
+	<iframe name="sylIFrame" id="sylIFrame" frameborder='0' dir='rtl' src="https://www.google.com/webhp?#btnI=I&q=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il&oq=site%3Ahttps%3A%2F%2Fwww30.tau.ac.il" style="margin-top: 20px;"></iframe>
+	</div>
+	
 	<div id="addCourse" style="display: none;">
 	<button id="bck1" class="button add" Dir="rtl" onclick="javascript:BckRev();"/ >חזור לרשימת ביקורות</button>
 	<iframe name='iframe1' id="iframe1" frameborder='0' dir='rtl' src='https://docs.google.com/forms/d/e/1FAIpQLSeYixMPFpuZacPOmT5nZVYyWQrmSbq4rt8m04eTaaEQ01m_dA/viewform?embedded=true' style="margin-top: 20px;"></iframe>
